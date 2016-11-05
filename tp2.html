@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body ng-app="" >
+  ////////////////////////////////////////////////////////////////////////
+  <br>
+  <h1>les derectives</h1>
+  <br>
+<div  ng-init="moi='c\'est la valeur de init'">
+ 	<p>Name: <input type="text" ng-model="name"></p>
+ 	<p ng-bind="name"></p>
+  {{moi}}
+</div>
+
+////////////////////////////////////////////////////////////////////////
+<br>
+<h1>les expresions</h1>
+<br>
+
+	<p>My first expression: {{ 5*1 + 5*1 }}</p>
+
+  <p>Name: <input type="text" ng-model="name"></p>
+  <p>{{name}}</p>
+
+  ////////////////////////////////////////////////////////////////////////
+  <br>
+  <h1>validation des formes</h1>
+  <br>
+
+  <form name="myform"  class="" action="index.html" method="post">
+
+    <input type="email" name="myadresse" value="" ng-model="text">
+    <span ng-show="myform.myadresse.$error.email"> form non valid</span>
+  </form>
+
+  //////////
+
+  <form name="myform1" action="index.html" ng-init="mytext='post@myweb.com'">
+    email:
+     <input type="email" ng-model="mytext" name="monEmail" required>
+     <h2>status</h2>
+     {{myform1.monEmail.$valid}}
+     {{myform1.monEmail.$dirty}}
+     {{myform1.monEmail.$touched}}
+  </form>
+
+
+
+
+</body>
+</html>

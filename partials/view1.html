@@ -1,0 +1,20 @@
+<div >
+  <h1>name</h1>
+  name:
+  <br>
+  <input type="text" ng-model="filter.nom">
+  <br>
+  <ul>
+    <li ng-repeat="c in customers | filter :filter.nom">{{c.name }}</li>
+  </ul>
+
+  customer name:<br>
+  <input type="text" ng-model="newCustomer.name">
+  <br>
+  customer city:<br>
+  <input type="text" ng-model="newCustomer.city">
+  <br>
+  <input type="button" ng-click="newCustomer()" value="add customer">
+  <br>
+  <a href="#/view2">view 2</a>
+</div>

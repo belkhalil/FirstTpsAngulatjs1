@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-ng-app="appli">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body  data-ng-controller="simpleCtrl" >
+     <div >
+       <div data-ng-view="">
+
+       </div>
+     </div>
+
+    <script>
+      var app=angular.module('appli', []);
+      var controllers={};
+      controllers.simpleCtrl=function($scope){
+      $scope.customers=[
+          {name:'amine',city:'casablanca'},
+          {name:'salahddine',city:'tata'},
+          {name:'abdeljabar',city:'asslim'},
+          {name:'ouadi',city:'safi'}
+        ];
+        $scope.newCustomer=function(){
+          $scope.customers.push({name:$scope.newCustomer.name});
+          $scope.customers.push({city:$scope.newCustomer.city});
+        };
+      };
+      app.controller(controllers);
+      app.config(function($routeProvider){
+        $routeProvider
+        .when('/view1',
+                {controller : 'simpleCtrl', templateUrl: 'partials/view1.html'})
+        .when('/view2',
+                {controller : 'simpleCtrl', templateUrl: 'partials/view2.html'})
+        .otherwise({redirectTo: '/view1'});
+      });
+    </script>
+  </body>
+</html>

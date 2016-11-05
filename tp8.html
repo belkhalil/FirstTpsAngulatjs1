@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="myapp" ng-controller="myctrl">
+
+<p>The hexadecimal value of 255 is:</p>
+
+<h1>{{hex}}</h1>
+
+</div>
+
+  </body>
+  <script>
+    var app=angular.module('myapp',[]);
+    app.service('firstService',function(){
+      this.myfunc=function(x){
+        return x.toString(16);
+      }
+  });
+      app.controller('myctrl', function($scope,firstService){
+        $scope.hex=firstService.myfunc(255);
+      });
+
+  </script>
+</html>

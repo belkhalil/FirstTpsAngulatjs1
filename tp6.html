@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="myapp" ng-controller="ctrl">
+      <table>
+        <tr>
+          <th ng-click="orderByMe('name')">name</th>
+          <th ng-click="orderByMe('country')">country</th>
+        </tr>
+        <tr ng-repeat="x in names | orderBy:MyorderBy">
+          <td>{{x.name}}</td>
+         <td>{{x.country}}</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      var app=angular.module('myapp',[]);
+      app.controller('ctrl', function($scope){
+        $scope.names=[
+
+        {name:'amine',country:'casablanca'},
+        {name:'salahddine',country:'tata'},
+          {name:'abdeljabar',country:'asslim'},
+        {name:'ouadi',country:'safi'}
+      ];
+      $scope.orderByMe= function(x)
+      {
+        $scope.MyorderBy=x;
+      }
+      });
+    </script>
+  </body>
+</html>

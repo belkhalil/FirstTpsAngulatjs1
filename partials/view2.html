@@ -1,0 +1,10 @@
+<div ng-app="appli" ng-controller="simpleCtrl">
+  <h1>city</h1>
+  name:
+  <br>
+  <input type="text" ng-model="filter.city">
+  <br>
+  <ul>
+    <li ng-repeat="c in customers | filter :filter.city">{{c.name }}</li>
+  </ul>
+</div>

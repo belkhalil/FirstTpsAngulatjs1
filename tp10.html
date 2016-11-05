@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="moi" ng-controller="ctrl">
+      <input type="button" ng-click="show()" value="tban ol la">
+      <div  ng-show="tban">
+        <p>
+          salut c'est moi abdeljabar ait belkhalil
+        </p>
+      </div>
+
+      <form class="" action="index.html" method="post">
+    Check to show a header:
+        <input type="checkbox" ng-model="myVar" >
+        <label ng-show="myVar">salamat salamat ya belkhalil </label>
+      </form>
+<hr>
+      <form name="monform" class="" action="index.html" method="post">
+        <input name="selectedItem" type="radio" ng-model="myvar" value="abdeljabar">abdeljabar
+        <input type="radio" ng-model="myvar" value="abdelhafid">Abdelhafid
+        <input type="radio" ng-model="myvar" value="yassin">yassin
+      </form>
+      {{monform.selectedItem.$valid}}
+        <br>
+      //si l'element est valid
+
+      {{monform.selectedItem.$untouched}}
+      //si l'element a ete touche
+        <br>
+      {{monform.selectedItem.$touched}}
+    // si l'element a ete modifie
+      <br>
+        {{monform.selectedItem.$dirty}}
+      <div ng-switch="myvar">
+        <div ng-switch-when="abdeljabar">
+          <h1>mrahba Mr abdeljabar</h1>
+        </div>
+        <div ng-switch-when="abdelhafid">
+          <h1>mahrhab Mr abdelhafid</h1>
+        </div>
+        <div ng-switch-when="yassin">
+          <h1>ahlan khoya yassin</h1>
+        </div>
+      </div>
+      <hr>
+   <form >
+     <select  ng-model="m" >
+       <option  value="abde">abdeljabar</option>
+       <option  value="abdel">abdelhafid</option>
+       <option  value="yass">yassin</option>
+     </select>
+   </form >
+
+
+      <div ng-switch="m">
+        <div ng-switch-when="abde">
+          <h1>mrahba Mr abdeljabar</h1>
+        </div>
+        <div ng-switch-when="abdel">
+          <h1>mahrhab Mr abdelhafid</h1>
+        </div>
+        <div ng-switch-when="yass">
+          <h1>ahlan khoya yassin</h1>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var app=angular.module('moi', []);
+      app.controller('ctrl', function($scope){
+        $scope.tban=false;
+        $scope.show=function(){
+        $scope.tban= !$scope.tban;
+        }
+      });
+    </script>
+  </body>
+</html>

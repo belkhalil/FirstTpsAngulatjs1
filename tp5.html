@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+  </script>
+  <body>
+     <nav ng-app="myapp" ng-controller="monController">
+       <input type="text" name="name" ng-model="prenom">
+       <input type="text" name="name" ng-model="nom">
+
+       full name : {{fullname()}}
+
+     </nav>
+     <script>
+     var app=angular.module('myapp',[]);
+     app.controller('monController', function($scope){
+       $scope.prenom="abdeljabar";
+       $scope.nom="belkhalil";
+       $scope.fullname=function () {
+         return $scope.prenom + " " + $scope.nom;
+       };
+     });
+
+     </script>
+  </body>
+</html>

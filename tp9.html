@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myapp" ng-controller="ctrl">
+ 	<select ng-model="selectedName" ng-options="x.name for x in names">
+
+ 	</select>
+  <hr>
+  <select ng-model="selectedName" ng-options="x.country for x in names">
+ 	</select>
+ you selected : {{selectedName.country}}
+  <hr>
+  <hr>
+
+  <select ng-model="selectedItem">
+    <option ng-repeat =" x in names">{{x.name}}</option>
+  </select>
+  you have selected : {{selectedItem}}
+</div>
+
+<script>
+var app=angular.module('myapp',[]);
+app.controller('ctrl', function($scope){
+  $scope.names=[
+  {name:'amine',country:'casablanca'},
+  {name:'salahddine',country:'tata'},
+    {name:'abdeljabar',country:'asslim'},
+  {name:'ouadi',country:'safi'}
+];
+
+});
+</script>
+
+</body>
+</html>
